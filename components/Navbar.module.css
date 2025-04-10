@@ -1,0 +1,424 @@
+/* === Base Header === */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  height: 54px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.headerContent {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.controlsRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-grow: 1;
+  height: 100%;
+}
+
+/* === Logo === */
+.logoArea {
+  flex-shrink: 1;
+  min-width: 0;
+  padding-right: 1rem;
+}
+
+.titleLarge, .titleShort {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  letter-spacing: -0.01em;
+}
+
+/* === Navigation Tabs === */
+.navArea {
+  display: none;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tabs {
+  display: flex;
+  gap: 2px;
+  height: 32px;
+  background-color: var(--primary-light);
+  padding: 2px;
+  border-radius: 6px;
+}
+
+.tabButton {
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--primary-dark);
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.tabButton:hover {
+  background-color: rgba(74, 144, 226, 0.15);
+}
+
+.activeTab {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 1px 4px rgba(74, 144, 226, 0.3);
+}
+
+.activeTab:hover {
+  background-color: var(--primary-dark);
+}
+
+/* === Controls Area === */
+.controlsArea {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-left: auto;
+}
+
+/* Voice Controls */
+.voiceControl {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.voiceToggleLabel {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.voiceToggleCheckbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.toggleSlider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+.voiceToggleCheckbox:checked + .toggleSlider {
+  background-color: var(--primary-color);
+}
+
+.voiceToggleCheckbox:checked + .toggleSlider:before {
+  transform: translateX(20px);
+}
+
+.readDataButton {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  font-size: clamp(0.8rem, 1.5vw, 0.85rem);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(74, 144, 226, 0.2);
+  white-space: nowrap;
+  justify-content: center;
+}
+
+.readDataButton:hover {
+  background-color: var(--primary-dark);
+  box-shadow: 0 2px 6px rgba(74, 144, 226, 0.3);
+}
+
+.readIcon {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.readButtonText {
+  /* Text part of the button, can be hidden on mobile */
+}
+
+/* Refresh Controls */
+.refreshControls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-right: 80px;
+}
+
+.countdownTimer {
+  position: relative;
+  width: 48px;
+  height: 6px;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  overflow: hidden;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.countdownInner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: var(--primary-color);
+  opacity: 0.8;
+  transition: width 0.2s linear;
+  z-index: 1;
+  border-radius: 3px;
+}
+
+.countdownTimer span {
+  position: absolute;
+  color: var(--text-muted);
+  z-index: 2;
+  font-weight: 500;
+  font-size: 0.7rem;
+  right: -24px;
+  min-width: 20px;
+}
+
+.refreshButton {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.refreshButton:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-color);
+}
+
+.refreshButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+.lastUpdated {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  position: absolute;
+  right: -80px;
+  white-space: nowrap;
+}
+
+/* === Animations === */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* === Desktop Styles (Large Screens) === */
+@media (min-width: 1024px) {
+  .titleLarge {
+    display: block;
+  }
+  .titleShort {
+    display: none;
+  }
+  .navArea {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+}
+
+/* === Tablet Styles === */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .headerContent {
+    padding: 0 1rem;
+  }
+  .titleLarge {
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    display: block;
+  }
+  .titleShort {
+    display: none;
+  }
+  .controlsArea {
+    gap: 0.8rem;
+  }
+  .voiceToggleLabel {
+    display: none;
+  }
+  .lastUpdated {
+    display: none;
+  }
+  .tabButton {
+    padding: 0.4rem 0.8rem;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  }
+  .readDataButton {
+    padding: 4px 8px;
+    font-size: clamp(0.75rem, 1.5vw, 0.8rem);
+  }
+}
+
+/* === Mobile Styles === */
+@media (max-width: 767px) {
+  .header {
+    height: 48px;
+  }
+
+  .headerContent {
+    padding: 0 1rem;
+  }
+
+  .titleLarge {
+    display: none;
+  }
+
+  .titleShort {
+    display: block;
+    font-size: 0.9rem;
+  }
+
+  .controlsRow {
+    gap: 1rem;
+  }
+
+  .tabs {
+    height: 28px;
+  }
+
+  .tabButton {
+    padding: 0 0.75rem;
+    font-size: 0.813rem;
+  }
+
+  .voiceToggleLabel {
+    display: none;
+  }
+
+  .lastUpdated {
+    display: none;
+  }
+
+  .controls {
+    gap: 1rem;
+  }
+
+  .readDataButton,
+  .refreshButton {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Optional: Very small screens adjustments */
+@media (max-width: 480px) {
+  .header {
+    height: 44px;
+  }
+
+  .headerContent {
+    padding: 0 0.75rem;
+  }
+
+  .controlsRow {
+    gap: 0.5rem;
+  }
+
+  .tabs {
+    height: 26px;
+  }
+
+  .tabButton {
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .readDataButton,
+  .refreshButton {
+    width: 26px;
+    height: 26px;
+  }
+
+  .countdownTimer {
+    width: 32px;
+  }
+}
+

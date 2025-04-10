@@ -1,0 +1,52 @@
+:root {
+  --primary-color: #4a90e2; /* Softer Blue */
+  --primary-dark: #357abd; 
+  --primary-light: #eaf2fb;
+  --secondary-color: #50e3c2; /* Teal Accent */
+  --secondary-dark: #3aa18a;
+  --background-color: #f7f9fc;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --text-muted: #777777;
+  --border-color: #e1e8ed;
+  --warning-color: #f5a623; /* Orange */
+  --warning-light: #fef6e9;
+  --error-color: #d0021b; /* Strong Red */
+  --error-light: #fadde0;
+  --success-color: #7ed321; /* Bright Green */
+  --success-light: #f2fae9;
+
+  --header-height: 70px;
+  --footer-height: 40px;
+  --border-radius: 8px;
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  --hover-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-height: 60px;
+    --footer-height: 35px;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  line-height: 1.6;
+  padding-top: 54px; /* Should match navbar height */
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 44px;
+  }
+}
