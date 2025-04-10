@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "chartjs-plugin-annotation": "^3.1.0",
     "chart.js": "^4.3.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.29",
