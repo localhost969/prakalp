@@ -28,7 +28,7 @@ interface TeamMember {
 
 // --- Constants for thresholds ---
 const TEMP_HIGH = 37.5;
-const TEMP_LOW = 35.0;
+const TEMP_LOW = 31.0;
 const HR_HIGH = 100;
 const HR_LOW = 60;
 const HUMIDITY_HIGH = 80;
@@ -36,7 +36,7 @@ const HUMIDITY_LOW = 30;
 
 // Add these constants near other constants at the top
 const TEMP_CRITICAL_HIGH = 38.5;
-const TEMP_CRITICAL_LOW = 34.0;
+const TEMP_CRITICAL_LOW = 31.0;
 const HR_CRITICAL_HIGH = 120;
 const HR_CRITICAL_LOW = 50;
 const HUMIDITY_CRITICAL_HIGH = 90;
